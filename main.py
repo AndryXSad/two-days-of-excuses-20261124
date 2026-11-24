@@ -12,6 +12,9 @@ LINE = "I finished on time in all 10,000 simulations. Unfortunately, this is the
 
 
 def main() -> int:
+    # Gate self-check: the entry must be 1-200 characters, one line.
+    assert 1 <= len(LINE) <= 200, "entry line must be 1-200 characters"
+    assert "\n" not in LINE, "entry must be a single line"
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     path = os.path.join(out_dir, "entry.txt")
     os.makedirs(out_dir, exist_ok=True)
